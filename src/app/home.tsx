@@ -17,13 +17,14 @@ export default function Home() {
 							{"Mercadin do Zé"}
 						</Text>
 					</View>
-					<TouchableOpacity style={styles.button}>
+					<TouchableOpacity style={styles.button} onPress={() => <Link href="/carrinho"></Link>}>
+						<Link href="/carrinho">
 						<Image
 							source = {require('@/assets/images/logo-carrinho.png')}
 							resizeMode = {"stretch"}
 							style={styles.image2}
 						/>
-						<Link href="/carrinho" asChild></Link>
+						</Link>
 					</TouchableOpacity>
 				</View>
 				<View style={styles.row3}>

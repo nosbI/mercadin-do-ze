@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet, TextInput} from "react-native";
-
+import { Link } from "expo-router";
 
 export default function Carrinho() {
 	return (
@@ -16,11 +16,13 @@ export default function Carrinho() {
 							/>
 							<Text style={styles.text}>Mercadin do Zé</Text>
 						</View>
+						<Link href="/home">
 						<Image
 							source = {require('../../assets/images/logo-home.png')} 
 							resizeMode = {"stretch"}
 							style={styles.image2}
 						/>
+						</Link>
 					</View>
 					<View style={styles.column2}>
 						<Text style={styles.text2}>Meu Carrinho</Text>
