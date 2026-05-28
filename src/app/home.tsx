@@ -17,7 +17,7 @@ export default function Home() {
 							{"Mercadin do Zé"}
 						</Text>
 					</View>
-					<TouchableOpacity style={styles.button} onPress={() => <Link href="/carrinho"></Link>}>
+					<TouchableOpacity style={styles.button}>
 						<Link href="/carrinho">
 						<Image
 							source = {require('@/assets/images/logo-carrinho.png')}

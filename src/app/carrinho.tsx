@@ -1,8 +1,22 @@
-import React from "react";
-import { View, Image, Text, TouchableOpacity, StyleSheet, TextInput} from "react-native";
+import Item from "@/components/itemCarrinho";
 import { Link } from "expo-router";
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function Carrinho() {
+const [textoItem, setTextoItem] = useState('');
+const [compra, setCompra] = useState<string[]>([]);
+const addItemCarrinho = () =>{
+	if (textoItem.trim() === '') return;
+
+	setCompra((prev) => [...prev, textoItem]);
+    setTextoItem('')
+}
+
+const deleteCompra = () => {
+	setCompra([]);
+}
+
 	return (
 		<View style={styles.container}>
 			<View  style={styles.scrollView}>
@@ -26,9 +40,13 @@ export default function Carrinho() {
 					</View>
 					<View style={styles.column2}>
 						<Text style={styles.text2}>Meu Carrinho</Text>
-						<TextInput style={styles.box} />
+						<TextInput style={styles.box}
+						value={textoItem}
+						onChangeText={setTextoItem}
+						placeholder="Digite"
+						/>
 					</View>
-					<TouchableOpacity style={styles.buttonRow} onPress={()=>alert('Item Adicionado ao Carrrinho!')}>
+					<TouchableOpacity style={styles.buttonRow} onPress={addItemCarrinho }>
 						<Image
 							source = {require('../../assets/images/icone-carrinho.png')} 
 							resizeMode = {"stretch"}
@@ -36,6 +54,12 @@ export default function Carrinho() {
 						/>
 						<Text style={styles.text3}>Adicionar ao carrinho</Text>
 					</TouchableOpacity>
+					{compra.map((item, index) => (
+						<Item key={index} listaDeCompras={item} />
+					))}
+					<TouchableOpacity onPress={() => setCompra([])}>
+								<Text>Deletar Compras</Text>
+							  </TouchableOpacity>
 				</View>
 			</View>
 		</View>
