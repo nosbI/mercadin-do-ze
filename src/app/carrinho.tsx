@@ -2,6 +2,7 @@ import Item from "@/components/itemCarrinho";
 import { Link } from "expo-router";
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { CircleMinus } from "lucide-react-native";
 
 export default function Carrinho() {
 const [textoItem, setTextoItem] = useState('');
@@ -20,18 +21,19 @@ const addItemCarrinho = () =>{
 						<View style={styles.row2}>
 							<Image
 								source = {require('../../assets/images/logo-mercado.png')} 
-								resizeMode = {"stretch"}
 								style={styles.image}
 							/>
 							<Text style={styles.text}>Mercadin do Zé</Text>
 						</View>
+						<TouchableOpacity style={styles.btn}>
 						<Link href="/home">
 						<Image
 							source = {require('../../assets/images/logo-home.png')} 
-							resizeMode = {"stretch"}
 							style={styles.image2}
+							resizeMode={"stretch"}
 						/>
 						</Link>
+						</TouchableOpacity>
 					</View>
 					<View style={styles.column2}>
 						<Text style={styles.text2}>Meu Carrinho</Text>
@@ -44,7 +46,6 @@ const addItemCarrinho = () =>{
 					<TouchableOpacity style={styles.buttonRow} onPress={addItemCarrinho }>
 						<Image
 							source = {require('../../assets/images/icone-carrinho.png')} 
-							resizeMode = {"stretch"}
 							style={styles.image3}
 						/>
 						<Text style={styles.text3}>Adicionar ao carrinho</Text>
@@ -54,7 +55,7 @@ const addItemCarrinho = () =>{
 					))}
 				</View>
 					<TouchableOpacity style={styles.dellista} onPress={() => setCompra([])}>
-						<Text>Excluir Itens</Text>
+						<CircleMinus></CircleMinus>
 					</TouchableOpacity>
 			</View>
 		</View>
@@ -65,9 +66,15 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "#FFFFFF",
 	},
+	btn: {
+		backgroundColor: "#DFEFF9",
+		borderRadius: 50,
+		padding: 3,
+		marginRight: 33,
+	},
 	input: {
 		width: '90%',
-    	height: 40,
+    	height: 60,
     	backgroundColor: '#d9d9d9',
     	borderRadius: 20,
     	padding: 15,
@@ -99,9 +106,8 @@ const styles = StyleSheet.create({
 		marginRight: 4,
 	},
 	image2: {
-		width: 36,
-		height: 36,
-		marginRight: 29,
+		width: 30,
+		height: 30,
 	},
 	image3: {
 		width: 20,
@@ -143,12 +149,13 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 	},
 	dellista: {
-	position: 'absolute',
-    top: 90, // distância do topo
-    right: 20, // distância da direita
-    backgroundColor: 'red',
-    paddingVertical: 12,
-    paddingHorizontal: 15,
-    borderRadius: 12,
-}
+		position: 'absolute',
+    	top: 207,
+    	right: 50,
+    	backgroundColor: '#5090E480',
+    	paddingVertical: 3,
+    	paddingHorizontal: 4,
+    	borderRadius: 12,
+		alignItems: "center",
+},
 });

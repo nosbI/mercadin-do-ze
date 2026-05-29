@@ -10,7 +10,7 @@ export default function Home() {
 					<View style={styles.row2}>
 						<Image
 							source = {require('@/assets/images/logo-mercado.png')} 
-							resizeMode = {"stretch"}
+							
 							style={styles.image}
 						/>
 						<Text style={styles.text}>
@@ -21,7 +21,7 @@ export default function Home() {
 						<Link href="/carrinho">
 						<Image
 							source = {require('@/assets/images/logo-carrinho.png')}
-							resizeMode = {"stretch"}
+						
 							style={styles.image2}
 						/>
 						</Link>
@@ -35,15 +35,14 @@ export default function Home() {
 						<View style={styles.row4}>
 							<Image
 								source = {require('@/assets/images/logo-telefone.png')} 
-								resizeMode = {"stretch"}
+								
 								style={styles.image3}
 							/>
-						<Text style={styles.text3}>{"+55 88 94002-8922"}</Text>
+						<Text style={styles.text3}>+55 88 94002-8922</Text>
 					</View>
 				</View>
 				<Image
 					source = {require('@/assets/images/produtos.png')} 
-					resizeMode = {"stretch"}
 					style={styles.image4}
 				/>
 			</View>
