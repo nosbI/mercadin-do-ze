@@ -12,11 +12,6 @@ const addItemCarrinho = () =>{
 	setCompra((prev) => [...prev, textoItem]);
     setTextoItem('')
 }
-
-const deleteCompra = () => {
-	setCompra([]);
-}
-
 	return (
 		<View style={styles.container}>
 			<View  style={styles.scrollView}>
@@ -40,10 +35,10 @@ const deleteCompra = () => {
 					</View>
 					<View style={styles.column2}>
 						<Text style={styles.text2}>Meu Carrinho</Text>
-						<TextInput style={styles.box}
-						value={textoItem}
+						<TextInput style={styles.input}
 						onChangeText={setTextoItem}
-						placeholder="Digite"
+						value={textoItem}
+						placeholder="Nome do Produto"
 						/>
 					</View>
 					<TouchableOpacity style={styles.buttonRow} onPress={addItemCarrinho }>
@@ -57,10 +52,10 @@ const deleteCompra = () => {
 					{compra.map((item, index) => (
 						<Item key={index} listaDeCompras={item} />
 					))}
-					<TouchableOpacity onPress={() => setCompra([])}>
-								<Text>Deletar Compras</Text>
-							  </TouchableOpacity>
 				</View>
+					<TouchableOpacity style={styles.dellista} onPress={() => setCompra([])}>
+						<Text>Excluir Itens</Text>
+					</TouchableOpacity>
 			</View>
 		</View>
 	)
@@ -70,11 +65,14 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "#FFFFFF",
 	},
-	box: {
-		height: 20,
-		backgroundColor: "#D9D9D9",
-		borderRadius: 50,
-		width: 350
+	input: {
+		width: '90%',
+    	height: 40,
+    	backgroundColor: '#d9d9d9',
+    	borderRadius: 20,
+    	padding: 15,
+    	fontSize: 18,
+		top: 4
 	},
 	buttonRow: {
 		flexDirection: "row",
@@ -144,4 +142,13 @@ const styles = StyleSheet.create({
 		fontSize: 12,
 		fontWeight: "bold",
 	},
+	dellista: {
+	position: 'absolute',
+    top: 90, // distância do topo
+    right: 20, // distância da direita
+    backgroundColor: 'red',
+    paddingVertical: 12,
+    paddingHorizontal: 15,
+    borderRadius: 12,
+}
 });

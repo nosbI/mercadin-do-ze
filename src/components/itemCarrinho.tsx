@@ -1,34 +1,16 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { CircleMinus } from "lucide-react-native";
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 
 type listaDeItens = {
     listaDeCompras: string
 }
-const [textoItem, setTextoItem] = useState('');
-const [compra, setCompra] = useState<string[]>([]);
-const addItemCarrinho = () =>{
-  if (textoItem.trim() === '') return;
-
-  setCompra((prev) => [...prev, textoItem]);
-    setTextoItem('')
-}
-
-
 
 export default function Item({listaDeCompras}: listaDeItens) {
   return (
     <View style={styles.container}>
       <View>
-        <CircleMinus size={30} color={"#ff0000"}/>
-      </View>
-      <View>
           <Text style={styles.item}>{listaDeCompras}</Text>
-          <TouchableOpacity onPress={() => setCompra([])}>
-            <Text>Deletar Compras</Text>
-          </TouchableOpacity>
       </View>
-      
     </View>
   );
 }
