@@ -1,8 +1,8 @@
 import Item from "@/components/itemCarrinho";
 import { Link } from "expo-router";
+import { CircleMinus } from "lucide-react-native";
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { CircleMinus } from "lucide-react-native";
 
 export default function Carrinho() {
 const [textoItem, setTextoItem] = useState('');
